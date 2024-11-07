@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
       }
     ]
   },
+  experimental: {
+    after: true,
+  },
+  devIndicators: {
+    appIsrStatus: true,
+    buildActivity: false,
+    buildActivityPosition: "bottom-left",
+
+  },
 };
 
 export default nextConfig;
