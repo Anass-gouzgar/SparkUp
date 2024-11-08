@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import 'easymde/dist/easymde.min.css';
-
+import "easymde/dist/easymde.min.css";
+import { Toaster } from "@/components/ui/toaster";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const workSans = localFont({
   src: [
@@ -56,8 +57,8 @@ const workSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "YC Directory",
-  description: "Pitch, Vote and Grow your startup.",
+  title: "SparkUp",
+  description: "Showcase and Propel Your Startup to New Heights.",
 };
 
 export default function RootLayout({
@@ -67,7 +68,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={workSans.variable}>{children}</body>
+      <body className={`${workSans.variable} selection:text-amber-600`}>
+        {children}
+        <Toaster />
+        <ScrollToTop/>
+      </body>
     </html>
   );
 }
