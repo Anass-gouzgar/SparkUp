@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { auth, signOut, signIn } from "@/auth";
 import { BadgePlus, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -8,19 +7,20 @@ const Navbar = async () => {
   const session = await auth();
 
   return (
-    <header className="px-5 py-3 bg-gray-100 shadow-sm font-work-sans">
+    <header className="px-6 py-2L max-w-7xl mx-auto bg-gray-100 sticky z-50 top-0 border-primaryP border-2 rounded-xl shadow-2xl font-work-sans">
       <nav className="flex justify-between items-center">
-        <Link href="/">
+        <Link href="/" >
           {/* <Image src="/Medica.png" alt="logo" width={124} height={30} /> */}
-          <h2 className="text-3xl font-bold text-blue-500">
+          <h2 className="text-3xl  font-bold text-blue-500">
             Spark<span className="text-[#fbe843]">Up</span>{" "}
           </h2>
         </Link>
 
         <div className="flex  gap-5 text-black ">
           {session && session?.user ? (
-            <div className="flex items-center align-baseline gap-5 bg-[#fbe843] p-2 rounded-xl">
-              <Link href="/startup/create">
+            <div className="flex items-center align-baseline gap-5  px-3 rounded-xl">
+              <span className="flex gap-2 px-2 rounded-xl bg-[#fbe843]kk bg-gray-300">
+                             <Link href="/startup/create">
                 <span className="max-sm:hidden">Create </span>
                 <BadgePlus className="size-6 sm:hidden" />
               </Link>
@@ -36,10 +36,12 @@ const Navbar = async () => {
                   <span className="max-sm:hidden">Logout</span>
                   <LogOut className="size-6 sm:hidden text-red-500 " />
                 </button>
-              </form>
+              </form> 
+              </span>
 
-              <Link href={`/user/${session?.id}`}>
-                <Avatar className="size-10">
+
+              <Link href={`/user/${session?.id}`} className="">
+                <Avatar className="size-8">
                   <AvatarImage
                     src={session?.user?.image || ""}
                     alt={session?.user?.name || ""}
@@ -57,12 +59,6 @@ const Navbar = async () => {
                 await signIn("github");
               }}
             >
-              {/* <button
-                type="submit"
-                className="bg-primary text-white w-20 h-8 rounded-lg hover:bg-primary/90 transition fade-in-100 "
-              >
-                Login
-              </button> */}
               <button
                 type="submit"
                 className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 transition fade-in-100 hover:rotate-2 hover:scale-110"

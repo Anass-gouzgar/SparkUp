@@ -13,10 +13,11 @@ const config: Config = {
       screens: {
         xs: "475px",
       },
+
       colors: {
         primary: {
-          "100": "rgb(42, 82, 222, 0.1)", 
-          DEFAULT: "rgb(42, 82, 222)", 
+          "100": "rgb(42, 82, 222, 0.8)",
+          DEFAULT: "rgb(42, 82, 222)",
         },
 
         secondary: "#FBE843",

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import SearchForm from "../../components/SearchForm";
 import StartupCard, {StartupTypeCard} from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
@@ -16,7 +15,6 @@ export default async function Home({
 
   const session = await auth()
 
-  console.log(session?.id)
 
 const {data: posts} = await sanityFetch({query: STARTUPS_QUERY, params})
 
@@ -24,9 +22,9 @@ const {data: posts} = await sanityFetch({query: STARTUPS_QUERY, params})
     <div className="">
       <section className="blue_container">
         <h1 className="heading ">
-          Present 
+          Present
            Your Startup, <br />
-          Connect with entrepreneurs 
+          Connect with entrepreneurs
         </h1>
         <p className="sub-heading !max-w-3xl">
           Showcase Your Startup, Share Ideas, Gain Recognition, and Connect with
