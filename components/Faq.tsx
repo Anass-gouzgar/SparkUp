@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItemProps {
   question: string;
   answer: string;
+  isInitiallyOpen?: boolean;
 }
 
 const Faq = () => {
@@ -13,6 +14,7 @@ const Faq = () => {
       question: "What is SparkUp?",
       answer:
         "SparkUp is a platform designed to help startups gain visibility, submit ideas, and connect with like-minded entrepreneurs through virtual competitions and community voting.",
+      isInitiallyOpen: true, // Open this question by default
     },
     {
       question: "Who can use SparkUp?",
@@ -48,14 +50,23 @@ const Faq = () => {
       </motion.p>
 
       {faqItems.map((item, index) => (
-        <FAQItem key={index} question={item.question} answer={item.answer} />
+        <FAQItem
+          key={index}
+          question={item.question}
+          answer={item.answer}
+          isInitiallyOpen={item.isInitiallyOpen}
+        />
       ))}
     </div>
   );
 };
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const FAQItem: React.FC<FAQItemProps> = ({
+  question,
+  answer,
+  isInitiallyOpen = false,
+}) => {
+  const [isOpen, setIsOpen] = useState(isInitiallyOpen);
 
   return (
     <div className="group rounded-lg border-s-4 border-primary bg-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden">
