@@ -1,7 +1,7 @@
 import SearchForm from "../../components/SearchForm";
 import StartupCard, {StartupTypeCard} from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
-import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { client } from "@/sanity/lib/client";
 import { auth } from "@/auth";
 import Faq from "@/components/Faq";
 
@@ -16,7 +16,7 @@ export default async function Home({
   const session = await auth()
 
 
-const {data: posts} = await sanityFetch({query: STARTUPS_QUERY, params})
+const posts = await client.withConfig({ useCdn: false }).fetch(STARTUPS_QUERY, params)
 
   return (
     <div className="">
@@ -53,7 +53,6 @@ const {data: posts} = await sanityFetch({query: STARTUPS_QUERY, params})
         </ul>
       </section>
       <Faq/>
-      <SanityLive />
     </div>
   );
 }

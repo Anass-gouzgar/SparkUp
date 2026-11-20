@@ -21,7 +21,7 @@ const StartupImage = ({
         role="img"
         aria-label={`${alt} (image unavailable)`}
         className={cn(
-          "flex flex-col items-center justify-center gap-2 bg-black-100 text-black-300 min-h-[164px]",
+          "flex flex-col items-center justify-center gap-2 bg-white-100 text-black-300 min-h-[164px]",
           className
         )}
       >
