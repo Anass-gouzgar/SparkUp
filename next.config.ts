@@ -14,8 +14,6 @@ const nextConfig: NextConfig = {
     ]
   },
   devIndicators: {
-    appIsrStatus: true,
-    buildActivity: false,
     buildActivityPosition: "bottom-left",
 
   },
