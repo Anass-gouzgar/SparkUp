@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
+import StartupImage from "@/components/StartupImage";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
@@ -61,7 +62,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       </section>
 
       <section className="section_container">
-        <img
+        <StartupImage
           src={post.image}
           alt="thumbnail"
           className="w-full h-auto rounded-xl"

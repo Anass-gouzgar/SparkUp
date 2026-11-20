@@ -2,6 +2,7 @@ import { cn, formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import StartupImage from "@/components/StartupImage";
 import { Button } from "@/components/ui/button";
 import { Author, Startup } from "@/sanity/types";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -53,7 +54,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       <Link href={`/startup/${_id}`}>
         <p className="startup-card_desc">{description}</p>
 
-        <img src={image} alt="placeholder" className="startup-card_img" />
+        <StartupImage src={image} alt={title ?? "Startup image"} className="startup-card_img" />
       </Link>
 
       <div className="flex-between gap-3 mt-5">
